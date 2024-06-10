@@ -15,6 +15,8 @@ import { metricsRoutes } from './http/controllers/metrics/routes'
 import { userRoutes } from './http/controllers/users/routes'
 import { orgRoutes } from './http/controllers/orgs/routes'
 import { athleteRoutes } from './http/controllers/athletes/routes'
+import { uploadRoutes } from './http/controllers/upload/routes'
+import { observationRoutes } from './http/controllers/observation/routes'
 
 export const app = fastify()
 
@@ -44,6 +46,8 @@ app.register(orgRoutes)
 app.register(userRoutes)
 app.register(athleteRoutes)
 app.register(metricsRoutes)
+app.register(uploadRoutes)
+app.register(observationRoutes)
 
 app.setErrorHandler((error, _, reply) => {
   if (error instanceof ZodError) {
